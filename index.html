@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BMW - The Ultimate Driving Machine</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome for icons -->
+  <script src="https://kit.fontawesome.com/yourkit.js" crossorigin="anonymous"></script>
+
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    /* Navbar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: white;
+      padding: 15px 40px;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+
+    .nav-links button {
+      background: none;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+      color: black;
+      font-weight: bold;
+      margin-right: 20px;
+    }
+    .nav-links button:hover { color: #0066cc; }
+
+    .contact-btn {
+      background-color: #0066cc;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .contact-btn:hover { background-color: #004c99; }
+
+    /* Hero */
+    .hero {
+      position: relative;
+      background: url("Welcome.png") no-repeat center center/cover;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      color: white;
+      padding: 0 20px;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0,0,0,0.5);
+      z-index: 1;
+    }
+    .hero-content { position: relative; z-index: 2; }
+    .hero h1 { font-size: 60px; line-height: 1.2; margin:0; }
+    .hero h1 .white { color: white; }
+    .hero h1 .blue { color: #0066cc; }
+    .hero p { margin-top: 20px; font-size: 20px; max-width: 800px; }
+
+    /* Down arrow */
+    .down-arrow {
+      position: absolute;
+      bottom: 30px;
+      font-size: 30px;
+      color: white;
+      z-index: 2;
+      cursor: pointer;
+      animation: bounce 2s infinite;
+    }
+    @keyframes bounce {
+      0%,20%,50%,80%,100% { transform: translateY(0); }
+      40% { transform: translateY(10px); }
+      60% { transform: translateY(5px); }
+    }
+
+    /* Section Styles */
+    section {
+      padding:100px 50px;
+    }
+
+    h2 { font-size:40px; margin-bottom:40px; text-align:center; }
+    p { font-size:20px; max-width:800px; margin:0 auto 40px; }
+
+    /* Why BMW Section */
+    #why-bmw { background:#eaeaea; text-align:center; }
+    #why-bmw h3 { font-size:28px; margin-bottom:20px; text-align:left; max-width:800px; margin-left:auto; margin-right:auto; }
+    #why-bmw ul { font-size:18px; line-height:1.8; list-style:none; padding-left:0; max-width:800px; margin:0 auto; text-align:left; }
+    #why-bmw ul li { margin-bottom:10px; }
+    #why-bmw ul li i { color:#0066cc; margin-right:10px; }
+
+    /* Model Section */
+    #models { background:#f5f5f5; }
+    .filter-buttons { text-align:center; margin-bottom:40px; }
+    .filter-buttons button { margin:5px; padding:10px 20px; border:none; background:#ddd; font-weight:bold; border-radius:5px; cursor:pointer; }
+    .filter-buttons button:hover, .filter-buttons button.active { background:#0066cc; color:white; }
+
+    .car-type-heading { font-size:28px; margin:60px 0 20px; border-left:5px solid #0066cc; padding-left:10px; }
+
+    .model-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(280px, 1fr)); gap:20px; }
+    .model-card { background:white; padding:20px; border-radius:12px; box-shadow:0px 4px 10px rgba(0,0,0,0.1); text-align:center; position:relative; display:block; text-decoration:none; color:black; }
+    .model-card i { font-size:24px; position:absolute; top:15px; left:15px; color:#0066cc; }
+    .model-card img { width:100%; height:160px; object-fit:cover; border-radius:8px; margin-bottom:15px; background:#eaeaea; }
+    .model-card h3 { font-size:22px; margin:10px 0; }
+    .model-card p { margin:5px 0; font-size:16px; }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <div class="navbar">
+    <div class="nav-links">
+      <button onclick="scrollToSection('home')">Home</button>
+      <button onclick="scrollToSection('why-bmw')">Why BMW</button>
+      <button onclick="scrollToSection('models')">Models</button>
+      <button onclick="scrollToSection('services')">Services</button>
+      <button onclick="scrollToSection('contact')">Contact</button>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <div class="hero" id="home">
+    <div class="hero-content">
+      <h1>
+        <span class="white">The Ultimate</span><br>
+        <span class="blue">Driving Machine</span>
+      </h1>
+      <p>Experience the perfect blend of luxury, performance, and innovation with BMW's premium vehicle collection.</p>
+    </div>
+    <div class="down-arrow" onclick="scrollToSection('why-bmw')">
+      <i class="fas fa-chevron-down"></i>
+    </div>
+  </div>
+
+  <!-- Why BMW Section -->
+  <section id="why-bmw">
+    <h2>Why BMW?</h2>
+    <p>Experience the ultimate in luxury, performance, and innovation. BMW vehicles are designed to keep you safe, connected, and confident on every drive.</p>
+    <h3>Safety Options</h3>
+    <ul>
+      <li><i class="fas fa-shield-alt"></i>-Active Cruise Control with Stop & Go</li>
+      <li><i class="fas fa-shield-alt"></i>-Lane Keeping Assistant</li>
+      <li><i class="fas fa-shield-alt"></i>-Blind Spot Detection</li>
+      <li><i class="fas fa-shield-alt"></i>-Collision and Pedestrian Warning with City Braking</li>
+      <li><i class="fas fa-shield-alt"></i>-Automatic Emergency Braking</li>
+      <li><i class="fas fa-shield-alt"></i>-Adaptive LED Headlights</li>
+    </ul>
+  </section>
+
+  <!-- BMW XM Banner -->
+  <section id="xm-ad" style="
+    position: relative;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    color: white;
+    text-align: left;
+    padding: 0 50px;
+    background: url('banner.png') no-repeat center center/cover;
+  ">
+    <div style="
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+    "></div>
+    <div style="position: relative; z-index: 2; max-width: 600px;">
+      <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
+        <img src="Logo2.png"  style="width: 100px; height: auto;">
+        <h2 style="font-size: 48px; margin: 0;">THE NEW XM</h2>
+      </div>
+      <p style="font-size: 20px; margin-bottom: 30px;">Discover the new BMW XM models</p>
+      <button style="
+        background-color: #0066cc;
+        color: white;
+        border: none;
+        padding: 12px 25px;
+        border-radius: 5px;
+        font-size: 18px;
+        font-weight: bold;
+        cursor: pointer;
+      ">Build & Price</button>
+    </div>
+  </section>
+
+  <!-- Models Section -->
+  <section id="models">
+    <h2>BMW Models</h2>
+    <div class="filter-buttons">
+      <button class="active" onclick="scrollToSection('electric')">100% Electric</button>
+      <button onclick="scrollToSection('plug-in')">Plug-in Hybrid</button>
+      <button onclick="scrollToSection('petrol')">Petrol</button>
+      <button onclick="scrollToSection('diesel')">Diesel</button>
+    </div>
+
+    <!-- Electric -->
+    <h3 class="car-type-heading" id="electric">100% Electric (6)</h3>
+    <div class="model-grid">
+      <a href="ix.html" class="model-card electric"><i class="fas fa-bolt"></i><img src="Model 1.png"><h3>BMW iX</h3><p>Price: From $85,000</p><p>Range: 324 miles</p></a>
+      <a href="ix2.html" class="model-card electric"><i class="fas fa-bolt"></i><img src="Model 2.png"><h3>BMW iX2</h3><p>Price: From $55,000</p><p>Range: 300 miles</p></a>
+      <a href="ix1.html" class="model-card electric"><i class="fas fa-bolt"></i><img src="Model 3.png"><h3>BMW iX1</h3><p>Price: From $120,000</p><p>Range: 310 miles</p></a>
+      <a href="i7.html" class="model-card electric"><i class="fas fa-bolt"></i><img src="Model 4.png"><h3>BMW i7</h3><p>Price: From $85,000</p><p>Range: 324 miles</p></a>
+      <a href="i5.html" class="model-card electric"><i class="fas fa-bolt"></i><img src="Model 5.png"><h3>BMW i5</h3><p>Price: From $85,000</p><p>Range: 324 miles</p></a>
+      <a href="i4.html" class="model-card electric"><i class="fas fa-bolt"></i><img src="Model 6.png"><h3>BMW i4</h3><p>Price: From $85,000</p><p>Range: 324 miles</p></a>
+    </div>
+
+    <!-- Plug-in Hybrid -->
+    <h3 class="car-type-heading" id="plug-in">Plug-in Hybrid (4)</h3>
+    <div class="model-grid">
+      <a href="xm.html" class="model-card plug-in"><i class="fas fa-leaf"></i><img src="Model 7.png"><h3>XM</h3><p>Price: From $45,000</p><p>Efficiency: 65 MPGe</p></a>
+      <a href="x5-hybrid.html" class="model-card plug-in"><i class="fas fa-leaf"></i><img src="Model 8.png"><h3>X5</h3><p>Price: From $57,000</p><p>Efficiency: 62 MPGe</p></a>
+      <a href="x3-hybrid.html" class="model-card plug-in"><i class="fas fa-leaf"></i><img src="Model 9.png"><h3>X3</h3><p>Price: From $57,000</p><p>Efficiency: 62 MPGe</p></a>
+      <a href="m5-hybrid.html" class="model-card plug-in"><i class="fas fa-leaf"></i><img src="Model 10.png"><h3>M5</h3><p>Price: From $57,000</p><p>Efficiency: 62 MPGe</p></a>
+    </div>
+
+    <!-- Petrol -->
+    <h3 class="car-type-heading" id="petrol">Petrol (43)</h3>
+    <div class="model-grid">
+      <a href="x7.html" class="model-card petrol"><img src="Model 15.png"><h3>X7</h3><p>Price: From $45,000</p><p>Fuel Efficiency: 30 mpg</p></a>
+      <a href="x6.html" class="model-card petrol"><img src="Model 16.png"><h3>X6</h3><p>Price: From $75,000</p><p>Fuel Efficiency: 25 mpg</p></a>
+      <a href="x6m.html" class="model-card petrol"><img src="Model 17.png"><h3>X6 M</h3><p>Price: From $90,000</p><p>Fuel Efficiency: 22 mpg</p></a>
+      <a href="x5.html" class="model-card petrol"><img src="Model 18.png"><h3>X5</h3><p>Price: From $90,000</p><p>Fuel Efficiency: 22 mpg</p></a>
+      <a href="x5m.html" class="model-card petrol"><img src="Model 19.png"><h3>X5 M</h3><p>Price: From $90,000</p><p>Fuel Efficiency: 22 mpg</p></a>
+      <a href="x4.html" class="model-card petrol"><img src="Model 20.png"><h3>X4</h3><p>Price: From $90,000</p><p>Fuel Efficiency: 22 mpg</p></a>
+      <a href="x4m.html" class="model-card petrol"><img src="Model 21.png"><h3>X4 M</h3><p>Price: From $90,000</p><p>Fuel Efficiency: 22 mpg</p></a>
+      <a href="x3.html" class="model-card petrol"><img src="Model 22.png"><h3>X3</h3><p>Price: From $90,000</p><p>Fuel Efficiency: 22 mpg</p></a>
+      <a href="x2.html" class="model-card petrol"><img src="Model 23.png"><h3>X2</h3><p>Price: From $90,000</p><p>Fuel Efficiency: 22 mpg</p></a>
+      <a href="x1.html" class="model-card petrol"><img src="Model 24.png"><h3>X1</h3><p>Price: From $90,000</p><p>Fuel Efficiency: 22 mpg</p></a>
+    </div>
+
+    <!-- Diesel -->
+    <h3 class="car-type-heading" id="diesel">Diesel (4)</h3>
+    <div class="model-grid">
+      <a href="x7-diesel.html" class="model-card diesel"><img src="Model 11.png"><h3>X7</h3><p>Price: From $50,000</p><p>Fuel Efficiency: 35 mpg</p></a>
+      <a href="x6-diesel.html" class="model-card diesel"><img src="Model 12.png"><h3>X6</h3><p>Price: From $65,000</p><p>Fuel Efficiency: 32 mpg</p></a>
+      <a href="x5-diesel.html" class="model-card diesel"><img src="Model 13.png"><h3>X5</h3><p>Price: From $50,000</p><p>Fuel Efficiency: 35 mpg</p></a>
+      <a href="x3-diesel.html" class="model-card diesel"><img src="Model 14.png"><h3>X3</h3><p>Price: From $65,000</p><p>Fuel Efficiency: 32 mpg</p></a>
+    </div>
+  </section>
+
+  <!-- Contact Placeholder -->
+  <div id="contact" style="height:100vh; background:#999;"></div>
+
+  <!-- JS Scroll Function -->
+  <script>
+    function scrollToSection(id) {
+      document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+    }
+  </script>
+</body>
+</html>

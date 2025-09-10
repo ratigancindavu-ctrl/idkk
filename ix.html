@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BMW Model Page</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap" rel="stylesheet">
+
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+    }
+
+    /* Navbar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: white;
+      padding: 15px 40px;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .nav-links button {
+      background: none;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+      color: black;
+      font-weight: bold;
+      margin-right: 20px;
+    }
+    .nav-links button:hover { color: #0066cc; }
+
+    /* Main Layout */
+    .content {
+      padding: 120px 50px 50px;
+      max-width: 1400px;
+      margin: auto;
+      display: flex;
+      gap: 40px;
+    }
+
+    /* Left column (info) */
+    .car-info {
+      flex: 1;
+    }
+    .car-info h1 {
+      font-size: 60px;
+      margin: 0 0 20px;
+      color: #111;
+    }
+    .car-info p {
+      font-size: 20px;
+      line-height: 1.6;
+      color: #333;
+    }
+
+    /* Right column (abstract gallery) */
+    .car-gallery {
+      flex: 1;
+      display: grid;
+      grid-template-areas:
+        "front front"
+        "side diagonal"
+        "back diagonal";
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .gallery-item {
+      background: #f0f0f0;
+      border-radius: 10px;
+      padding: 15px;
+      text-align: center;
+      box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 8px;
+      background: #ddd;
+    }
+    .gallery-item h3 {
+      margin-top: 8px;
+      font-size: 16px;
+    }
+
+    /* Abstract sizing */
+    .front   { grid-area: front; height: 200px; }
+    .side    { grid-area: side; height: 160px; }
+    .back    { grid-area: back; height: 180px; }
+    .diagonal{ grid-area: diagonal; height: 360px; }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <div class="navbar">
+    <div class="nav-links">
+      <button onclick="window.location.href='index.html'">Home</button>
+      <button onclick="window.location.href='index.html#models'">Models</button>
+      <button onclick="window.location.href='index.html#contact'">Contact</button>
+    </div>
+  </div>
+
+  <!-- Page Content -->
+  <div class="content">
+    <!-- Left: Info -->
+    <div class="car-info">
+      <h1>iX</h1>
+      <p>
+        Placeholder for car description. Write about performance, engine specs, design features,
+        luxury details, and safety highlights here. This text will describe what makes this BMW 
+        model stand out.
+      </p>
+    </div>
+
+    <!-- Right: Abstract Image Grid -->
+    <div class="car-gallery">
+      <div class="gallery-item front">
+        <img src="front-placeholder.png" alt="Front View">
+        <h3>Front View</h3>
+      </div>
+      <div class="gallery-item side">
+        <img src="side-placeholder.png" alt="Side View">
+        <h3>Side View</h3>
+      </div>
+      <div class="gallery-item back">
+        <img src="back-placeholder.png" alt="Back View">
+        <h3>Back View</h3>
+      </div>
+      <div class="gallery-item diagonal">
+        <img src="diagonal-placeholder.png" alt="Diagonal View">
+        <h3>Diagonal View</h3>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
